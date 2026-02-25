@@ -1,0 +1,45 @@
+name: multi_company_invoice
+description: Multi Company Trading Invoice Desktop Software
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # ✅ SQLite Database
+  sqflite: ^2.3.2
+  sqflite_common_ffi: ^2.3.2
+  fl_chart:
+  flutter_colorpicker:
+  flutter_screenutil: ^5.9.3
+   
+ 
+
+  # ✅ Path for database location
+  path: ^1.9.0
+  path_provider: ^2.1.2
+
+  # ✅ State management
+  provider: ^6.1.2
+
+  # ✅ Logo image picker (for company logos)
+  file_picker: ^8.0.0
+
+  # ✅ PDF invoice generation (future use)
+  pdf: ^3.10.7
+  printing: ^5.12.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
