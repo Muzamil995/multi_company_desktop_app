@@ -271,9 +271,12 @@ class _CompanyLoginScreenState extends State<CompanyLoginScreen> {
                       children: [
                         Icon(Icons.flash_on_rounded,
                             color: Colors.white, size: 60.sp),
+
                         SizedBox(height: 15.h),
+                        Image.asset("assetsd/gof_logo.png",fit: BoxFit.fill,),
+                        SizedBox(height:15.h),
                         Text(
-                          "chakra",
+                          "GoftechSolutions",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 28.sp,

@@ -130,18 +130,18 @@ class _AddCompanyScreenState extends State<AddCompanyScreen> {
     double containerWidth = isWideScreen ? 1100.w : double.infinity;
 
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBg,
+      backgroundColor: AppColors.primary,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios,
-              color: AppColors.textPrimary, size: 20.sp),
+              color: AppColors.scaffoldBg, size: 20.sp),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text("Add New Company",
             style: TextStyle(
-                color: AppColors.textPrimary,
+                color: AppColors.scaffoldBg,
                 fontWeight: FontWeight.bold,
                 fontSize: 16.sp)),
         centerTitle: true,
@@ -297,7 +297,7 @@ class _AddCompanyScreenState extends State<AddCompanyScreen> {
     onTap: _pickLogo,
     borderRadius: BorderRadius.circular(12.r),
     child: Container(
-      height: 150.h,
+      height: 190.h,
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.scaffoldBg,
@@ -359,7 +359,7 @@ class _AddCompanyScreenState extends State<AddCompanyScreen> {
   // ── Logo Preview (logo selected) ──
   Widget _logoPreview() {
     return Container(
-      height: 120.h,
+      height: 160.h,
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.scaffoldBg,

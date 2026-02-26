@@ -388,7 +388,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               Expanded(
                 flex: 2,
                 child: Text(
-                    "total: ${invoice.total.toStringAsFixed(2)}", 
+                    '${invoice.currency} ${invoice.total.toStringAsFixed(2)}', 
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: AppColors.textPrimary,

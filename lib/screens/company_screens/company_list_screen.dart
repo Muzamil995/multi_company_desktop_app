@@ -32,7 +32,7 @@ class _CompanyListScreenState extends State<CompanyListScreen> {
     final provider = context.watch<CompanyProvider>();
 
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBg,
+      backgroundColor: AppColors.primary.withOpacity(.9),
       body: Center(
         child: SizedBox(
           width: 1100.w,
@@ -54,7 +54,7 @@ class _CompanyListScreenState extends State<CompanyListScreen> {
                           style: TextStyle(
                             fontSize: 24.sp,
                             fontWeight: FontWeight.w700,
-                            color: AppColors.textPrimary,
+                            color: AppColors.scaffoldBg,
                           ),
                         ),
                         SizedBox(height: 8.h),
@@ -62,7 +62,7 @@ class _CompanyListScreenState extends State<CompanyListScreen> {
                           "Choose a company to continue",
                           style: TextStyle(
                             fontSize: 14.sp,
-                            color: AppColors.textSecondary,
+                            color: AppColors.scaffoldBg,
                           ),
                         ),
                       ],
@@ -80,19 +80,19 @@ class _CompanyListScreenState extends State<CompanyListScreen> {
                           context.read<CompanyProvider>().loadCompanies();
                         }
                       },
-                      icon: Icon(Icons.add, size: 18.sp, color: Colors.white),
+                      icon: Icon(Icons.add, size: 23.sp, color: AppColors.primary),
                       label: Text(
                         "Add Company",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.primary,
                           fontWeight: FontWeight.w600,
                           fontSize: 14.sp,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
+                        backgroundColor: AppColors.scaffoldBg,
                         elevation: 2,
-                        shadowColor: AppColors.primary.withOpacity(0.4),
+                        shadowColor: AppColors.scaffoldBg.withOpacity(0.4),
                         padding: EdgeInsets.symmetric(
                             horizontal: 24.w, vertical: 16.h),
                         shape: RoundedRectangleBorder(

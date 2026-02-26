@@ -88,9 +88,9 @@ class InvoicePdfService {
               children: [
                 _billTo(invoice, textClr, statusClr),
                 pw.SizedBox(height: 28),
-                _itemsTable(items, headerBg, headerFg, bodyBg, textClr, accentLight),
+                _itemsTable(items, headerBg, headerFg, bodyBg, textClr, accentLight, invoice.currency),
                 pw.SizedBox(height: 20),
-                _totals(invoice, headerBg, textClr),
+                _totals(invoice, headerBg, textClr, invoice.currency),
                 if (invoice.notes != null && invoice.notes!.isNotEmpty) ...[
                   pw.SizedBox(height: 20),
                   _notes(invoice.notes!, textClr),
@@ -297,6 +297,7 @@ class InvoicePdfService {
     PdfColor bodyBg,
     PdfColor textClr,
     PdfColor accentLight,
+    String currency,
   ) {
     return pw.Column(
       children: [
@@ -349,13 +350,13 @@ class InvoicePdfService {
                 pw.Expanded(
                     flex: 2,
                     child: pw.Text(
-                        '\$${item.price.toStringAsFixed(2)}',
+                        '$currency${item.price.toStringAsFixed(2)}',
                         textAlign: pw.TextAlign.right,
                         style: const pw.TextStyle(
                             fontSize: 10, color: PdfColors.grey600))),
                 pw.Expanded(
                     flex: 2,
-                    child: pw.Text('\$${amount.toStringAsFixed(2)}',
+                    child: pw.Text('$currency${amount.toStringAsFixed(2)}',
                         textAlign: pw.TextAlign.right,
                         style: pw.TextStyle(
                             fontSize: 10,
@@ -387,6 +388,7 @@ class InvoicePdfService {
     InvoiceModel inv,
     PdfColor accentColor,
     PdfColor textClr,
+    String currency,
   ) {
     // inv.discount and inv.taxRate are stored as flat amounts
     final double discountAmt = inv.discount;
@@ -405,13 +407,13 @@ class InvoicePdfService {
           ),
           child: pw.Column(
             children: [
-              _tRow('Subtotal', '\$${subtotal.toStringAsFixed(2)}', textClr),
+              _tRow('Subtotal', '$currency${subtotal.toStringAsFixed(2)}', textClr),
               pw.Divider(color: PdfColors.grey300, thickness: 0.5),
-              _tRow('Discount', '-\$${discountAmt.toStringAsFixed(2)}', textClr),
+              _tRow('Discount', '-$currency${discountAmt.toStringAsFixed(2)}', textClr),
               pw.Divider(color: PdfColors.grey300, thickness: 0.5),
-              _tRow('Tax', '+\$${taxAmt.toStringAsFixed(2)}', textClr),
+              _tRow('Tax', '+$currency${taxAmt.toStringAsFixed(2)}', textClr),
               pw.Divider(color: accentColor, thickness: 1),
-              _tRow('TOTAL', '\$${inv.total.toStringAsFixed(2)}',
+              _tRow('TOTAL', '$currency${inv.total.toStringAsFixed(2)}',
                   accentColor,
                   isTotal: true),
             ],
